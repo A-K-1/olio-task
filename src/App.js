@@ -1,11 +1,12 @@
-import { Button } from "./components/atoms";
+import { Navbar } from "./components/organisms";
+import data from "./data/default";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Button text="Hello World" />
-    </>
+    <div>
+      <Navbar logo={data.images.logo} />
+    </div>
   );
-}
+};
 
 export default App;

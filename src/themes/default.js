@@ -1,5 +1,6 @@
 const theme = {};
 
+// The main colours used throughout the app
 theme.palette = {
   primary: "#00a69c",
   secondary: "#bb4291",
@@ -11,10 +12,6 @@ theme.fonts = {
   primary: "Helvetica Neue, Helvetica, Roboto, sans-serif",
   pre: "Consolas, Liberation Mono, Menlo, Courier, monospace",
   quote: "Georgia, serif",
-};
-
-theme.sizes = {
-  maxWidth: "1100px",
 };
 
 export default theme;
