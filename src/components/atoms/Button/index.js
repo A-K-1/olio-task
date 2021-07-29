@@ -4,8 +4,8 @@ import styled, { css } from "styled-components";
 const StyledButton = styled.button`
   background: transparent;
   border-radius: 3px;
-  border: 2px solid palevioletred;
-  color: palevioletred;
+  border: 2px solid ${(props) => props.theme.palette.primary};
+  color: ${(props) => props.theme.palette.secondary};
   margin: 0.5em 1em;
   padding: 0.25em 1em;
 
