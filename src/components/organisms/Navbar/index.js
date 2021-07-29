@@ -9,6 +9,11 @@ const StyledNavbar = styled.div`
   background: ${(props) => props.theme.palette.primary};
   height: 80px;
   padding: 10px 30px;
+
+  @media screen and (max-width: 420px) {
+    height: max-content;
+    flex-direction: column;
+  }
 `;
 
 const StyledLogo = styled.img`

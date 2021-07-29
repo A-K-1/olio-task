@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ImageLink } from "../../atoms";
 import data from "../../../data/default";
@@ -13,6 +13,18 @@ const StyledImageLinkWrapper = styled.div`
 `;
 
 export const AppLinkCluster = () => {
+  const [pageWidth, setPageWidth] = useState(window.innerWidth);
+
+  const handleResize = (e) => {
+    setPageWidth(window.innerWidth);
+  };
+  useEffect(() => {
+    window.addEventListener("resize", handleResize);
+    return function cleanup() {
+      window.removeEventListener("resize", handleResize);
+    };
+  });
+
   return (
     <StyledWrapper>
       {data.appLinks.map((appLink, index) => {
@@ -21,7 +33,7 @@ export const AppLinkCluster = () => {
             <ImageLink
               key={"imageLink" + index}
               link={appLink.link}
-              image={appLink.image}
+              image={pageWidth > 768 ? appLink.image : appLink.mobileImage}
             />
           </StyledImageLinkWrapper>
         );
