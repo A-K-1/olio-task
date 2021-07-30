@@ -1,1 +1,2 @@
-export * from "../organisms/Navbar";
+export * from "./Navbar";
+export * from "./MapContainer";

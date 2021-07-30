@@ -1,6 +1,7 @@
 import logo from "../images/logoWhite.png";
 import appStoreMobile from "../images/appleIconMobile.png";
 import playStoreMobile from "../images/playIconMobile.png";
+import cakeFive from "@iconify-icons/icon-park-outline/cake-five";
 
 const data = {};
 
@@ -25,4 +26,7 @@ data.appLinks = [
   },
 ];
 
+data.mapResources = {
+  markerIcon: cakeFive,
+};
 export default data;

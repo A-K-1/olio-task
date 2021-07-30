@@ -10,7 +10,7 @@ const StyledNavbar = styled.div`
   height: 80px;
   padding: 10px 30px;
 
-  @media screen and (max-width: 420px) {
+  @media screen and (max-width: 360px) {
     height: max-content;
     flex-direction: column;
   }
