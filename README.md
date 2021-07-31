@@ -40,7 +40,7 @@ cd Desktop/olio-task
 npm i
 ```
 
-7. Once this has completed (it may take a few minutes) you are ready to start run the application locally. Enter the following command into your terminal and click enter. Once the command has finished running, a new tab will automatically be opened in your browser with the application running:
+7. Once this has completed (it may take a few minutes) you are ready to start running the application locally. Enter the following command into your terminal and click enter. Once the command has finished running, a new tab will automatically be opened in your browser with the application running:
 
 ```bash
 npm start
