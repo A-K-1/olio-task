@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Navbar, MapContainer, ItemList } from "./components/organisms";
+import { Footer } from "./components/atoms";
 import data from "./data/default";
 import styled from "styled-components";
 import { Context } from "./contexts/Store";
@@ -42,6 +43,7 @@ const App = () => {
       <StyledItemListWrapper>
         <ItemList />
       </StyledItemListWrapper>
+      <Footer />
     </div>
   );
 };

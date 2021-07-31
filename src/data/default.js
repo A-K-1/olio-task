@@ -32,4 +32,8 @@ data.appLinks = [
 data.mapResources = {
   markerIcon: cakeFive,
 };
+
+data.footer = {
+  text: "Created by Arron Kukadia",
+};
 export default data;
