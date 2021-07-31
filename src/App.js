@@ -1,15 +1,9 @@
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useContext } from "react";
 import { Navbar, MapContainer, ItemList } from "./components/organisms";
 import data from "./data/default";
 import styled from "styled-components";
-import { reducer } from "./contexts/reducer";
-
-export const AuthContext = React.createContext();
-
-const initialState = {
-  data: [],
-  clickedItems: [],
-};
+import { Context } from "./contexts/Store";
+import Store from "./contexts/Store";
 
 const StyledItemListWrapper = styled.div`
   margin-top: 40px;
@@ -20,7 +14,7 @@ const StyledItemListWrapper = styled.div`
 `;
 
 const App = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useContext(Context);
 
   useEffect(() => {
     const url =
@@ -41,20 +35,13 @@ const App = () => {
 
   return (
     <div>
-      <AuthContext.Provider
-        value={{
-          state,
-          dispatch,
-        }}
-      >
-        <Navbar logo={data.images.logo} />
-        <div>
-          <MapContainer />
-        </div>
-        <StyledItemListWrapper>
-          <ItemList />
-        </StyledItemListWrapper>
-      </AuthContext.Provider>
+      <Navbar logo={data.images.logo} />
+      <div>
+        <MapContainer />
+      </div>
+      <StyledItemListWrapper>
+        <ItemList />
+      </StyledItemListWrapper>
     </div>
   );
 };

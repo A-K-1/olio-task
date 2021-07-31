@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
 import styled from "styled-components";
 import { ItemCard } from "../../molecules/index";
-import { AuthContext } from "../../../App";
-import { reducer } from "../../../contexts/reducer";
+import { Context } from "../../../contexts/Store";
+// import { reducer } from "../../../contexts/Reducer";
 import { Modal } from "../../organisms";
 import { Header } from "../../atoms";
 
@@ -29,15 +29,13 @@ export const ItemList = () => {
   const [viewed, setViewed] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
-  const [state, dispatch] = useReducer(reducer);
-  const { state: globalState } = useContext(AuthContext);
+  const [state, dispatch] = useContext(Context);
 
   useEffect(() => {
-    if (globalState.itemData) setItems(globalState.itemData);
-  }, [globalState.itemData]);
+    if (state.itemData) setItems(state.itemData);
+  }, [state.itemData]);
 
   const handleClickItem = (index) => {
-    console.log("clicked");
     setViewed([
       ...viewed,
       {
@@ -46,7 +44,7 @@ export const ItemList = () => {
       },
     ]);
     setShowModal(true);
-    setModalData(globalState.itemData[index]);
+    setModalData(state.itemData[index]);
 
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
@@ -66,7 +64,6 @@ export const ItemList = () => {
     setShowModal(!showModal);
   };
 
-  console.log("modalData", modalData);
   return (
     <StyledWrapper>
       {showModal && (

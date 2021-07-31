@@ -1,4 +1,4 @@
-export const reducer = (state, action) => {
+const Reducer = (state, action) => {
   switch (action.type) {
     case "ADD_DATA":
       return {
@@ -19,3 +19,5 @@ export const reducer = (state, action) => {
       return state;
   }
 };
+
+export default Reducer;

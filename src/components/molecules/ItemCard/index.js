@@ -46,7 +46,6 @@ export const ItemCard = ({
   index,
   viewed,
 }) => {
-  // console.log("viewed", viewed);
   let isViewed = false;
 
   if (viewed) {

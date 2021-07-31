@@ -71,7 +71,7 @@ Modal.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   images: PropTypes.array,
-  distance: PropTypes.string,
+  distance: PropTypes.number,
   town: PropTypes.string,
   country: PropTypes.string,
   collectionNotes: PropTypes.string,

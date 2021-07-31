@@ -12,11 +12,9 @@ const StyledItemImage = styled.img`
 `;
 
 export const ImageCluster = ({ images }) => {
-  console.log(images);
   return (
     <StyledWrapper>
       {images.map((image, index) => {
-        console.log("imgcluster", image);
         return (
           <StyledItemImage
             key={"itemImage" + index}
