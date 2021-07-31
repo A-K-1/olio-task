@@ -41,7 +41,6 @@ const StyledItemImage = styled.img`
 
 const StyledItemName = styled.p`
   color: ${(props) => props.theme.palette.black};
-  font-style: italic;
   font-size: 1.25rem;
   line-height: normal;
   margin-top: 0;
