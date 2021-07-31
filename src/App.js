@@ -3,7 +3,6 @@ import { Navbar, MapContainer, ItemList } from "./components/organisms";
 import data from "./data/default";
 import styled from "styled-components";
 import { Context } from "./contexts/Store";
-import Store from "./contexts/Store";
 
 const StyledItemListWrapper = styled.div`
   margin-top: 40px;
