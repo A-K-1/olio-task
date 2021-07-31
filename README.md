@@ -61,6 +61,10 @@ Here is a list of some of the concepts/tools used in this application:
 - **Theme Provider** to prevent hardcoding of colours in the styling of components. These variables can be changed from a single location
 - **Data file** to house any links/images to prevent hardcoding of these within components
 
+## Backlog for future changes
+
+[Backlog](https://trello.com/b/4Ev8FTi4/olio-task-future-considerations)
+
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
