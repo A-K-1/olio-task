@@ -4,8 +4,8 @@ The ImageCluster molecule is used to show a group of images
 */
 import React from "react";
 import styled from "styled-components";
-import { Header, Caption } from "../../atoms";
-import { ImageCluster } from "../../molecules";
+import { Caption } from "../../atoms";
+import { Header, ImageCluster } from "../../molecules";
 import PropTypes from "prop-types";
 
 const StyledWrapper = styled.div`

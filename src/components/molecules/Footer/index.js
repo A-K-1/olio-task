@@ -4,6 +4,7 @@ A Footer that displays text from the data file
 import React from "react";
 import styled from "styled-components";
 import data from "../../../data/default";
+import { Label } from "../../atoms";
 
 const StyledFooter = styled.div`
   display: flex;
@@ -16,15 +17,10 @@ const StyledFooter = styled.div`
   align-items: center;
 `;
 
-const StyledName = styled.p`
-  font-size: 1.25rem;
-  color: ${(props) => props.theme.palette.white};
-`;
-
 export const Footer = () => {
   return (
     <StyledFooter>
-      <StyledName>{data.footer.text}</StyledName>
+      <Label>{data.footer.text}</Label>
     </StyledFooter>
   );
 };
