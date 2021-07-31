@@ -1,15 +1,16 @@
-import App from "./App";
+import React from "react";
 import { ThemeProvider } from "styled-components";
-import theme from "./themes/default";
+import theme from "../../../themes/default";
 import ReactDOM from "react-dom";
-import Store from "./contexts/Store";
+import { MapContainer } from "./index";
+import Store from "../../../contexts/Store";
 
 it("renders without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(
     <ThemeProvider theme={theme}>
       <Store>
-        <App />
+        <MapContainer />
       </Store>
     </ThemeProvider>,
     div
