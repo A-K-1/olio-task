@@ -77,6 +77,23 @@ export const MapContainer = () => {
     setShowModal(true);
     setModalData(state.itemData[itemIndex]);
 
+    // update the views for the clicked item and put the new list of items into the store
+    const alreadyViewed = state.clickedItems.find(
+      (item) => item.index === itemIndex
+    );
+
+    if (!alreadyViewed) {
+      let tempState = state.itemData;
+      tempState[itemIndex].reactions.views =
+        tempState[itemIndex].reactions.views + 1;
+      dispatch({
+        type: "ADD_DATA",
+        payload: {
+          data: tempState,
+        },
+      });
+    }
+
     // set the global state, append the new clicked item to the list of items already in the store
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",

@@ -45,6 +45,24 @@ export const ItemList = () => {
     setShowModal(true);
     setModalData(state.itemData[index]);
 
+    console.log(state.itemData[index]);
+
+    // update the views for the clicked item and put the new list of items into the store
+    const alreadyViewed = state.clickedItems.find(
+      (item) => item.index === index
+    );
+
+    if (!alreadyViewed) {
+      let tempState = state.itemData;
+      tempState[index].reactions.views = tempState[index].reactions.views + 1;
+      dispatch({
+        type: "ADD_DATA",
+        payload: {
+          data: tempState,
+        },
+      });
+    }
+
     // set the global state, append the new clicked item to the list of items already in the store
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
@@ -91,6 +109,7 @@ export const ItemList = () => {
             handleClick={handleClickItem}
             index={index}
             viewed={state?.clickedItems && state.clickedItems}
+            numberViews={item.reactions.views}
           />
         ))}
       </StyledListWrapper>

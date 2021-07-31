@@ -54,6 +54,7 @@ export const ItemCard = ({
   handleClick,
   index,
   viewed,
+  numberViews,
 }) => {
   // this variable will track if the item card has been viewed by the user
   let isViewed = false;
@@ -71,6 +72,7 @@ export const ItemCard = ({
       <StyledItemImage src={image} />
       <StyledItemName>{itemName}</StyledItemName>
       <Caption>{description}</Caption>
+      <Caption>{`Number of views: ${numberViews}`}</Caption>
     </StyledWrapper>
   );
 };
@@ -82,6 +84,7 @@ ItemCard.propTypes = {
   handleClick: PropTypes.func,
   index: PropTypes.number,
   viewed: PropTypes.array,
+  numberViews: PropTypes.number,
 };
 
 ItemCard.defaultProps = {};
