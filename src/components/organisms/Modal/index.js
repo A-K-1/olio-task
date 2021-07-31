@@ -1,3 +1,7 @@
+/* 
+An organism that displays a modal with information using the Header and Caption atoms.
+The ImageCluster molecule is used to show a group of images
+*/
 import React from "react";
 import styled from "styled-components";
 import { Header, Caption } from "../../atoms";

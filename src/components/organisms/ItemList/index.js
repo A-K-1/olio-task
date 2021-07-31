@@ -1,4 +1,8 @@
-import React, { useState, useEffect, useContext, useReducer } from "react";
+/*
+An organism that displays a number of ItemCards in a responsive grid
+A modal will display when a card is clicked
+*/
+import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
 import { ItemCard } from "../../molecules/index";
 import { Context } from "../../../contexts/Store";
@@ -31,10 +35,12 @@ export const ItemList = () => {
   const [modalData, setModalData] = useState({});
   const [state, dispatch] = useContext(Context);
 
+  // if there are items in the store, set these in the items variable
   useEffect(() => {
     if (state.itemData) setItems(state.itemData);
   }, [state.itemData]);
 
+  // when an item is clicked, add it to the array of viewed items and set the state
   const handleClickItem = (index) => {
     setViewed([
       ...viewed,
@@ -43,9 +49,12 @@ export const ItemList = () => {
         clicked: true,
       },
     ]);
+
+    // show the modal and set the correct item data to show in the modal
     setShowModal(true);
     setModalData(state.itemData[index]);
 
+    // set the global state
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
       payload: {
@@ -60,6 +69,7 @@ export const ItemList = () => {
     });
   };
 
+  // handle the display of the modal. Clicking anywhere while the modal is open will close it
   const handleClickModal = () => {
     setShowModal(!showModal);
   };

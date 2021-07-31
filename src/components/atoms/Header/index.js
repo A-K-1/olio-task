@@ -1,3 +1,6 @@
+/* 
+A styled header component used for page headings
+*/
 import styled from "styled-components";
 
 export const Header = styled.p`

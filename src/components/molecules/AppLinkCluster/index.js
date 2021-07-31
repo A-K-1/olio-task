@@ -1,3 +1,6 @@
+/* 
+A molecule which uses the ImageLink atom to display a number of ImageLinks side by side
+*/
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { ImageLink } from "../../atoms";
@@ -15,9 +18,11 @@ const StyledImageLinkWrapper = styled.div`
 export const AppLinkCluster = () => {
   const [pageWidth, setPageWidth] = useState(window.innerWidth);
 
-  const handleResize = (e) => {
+  const handleResize = () => {
     setPageWidth(window.innerWidth);
   };
+
+  // When the page is resized, call the handleResize function to set the pageWidth state
   useEffect(() => {
     window.addEventListener("resize", handleResize);
     return function cleanup() {
@@ -25,6 +30,7 @@ export const AppLinkCluster = () => {
     };
   });
 
+  // loop through the appLink array
   return (
     <StyledWrapper>
       {data.appLinks.map((appLink, index) => {

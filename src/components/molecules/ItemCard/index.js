@@ -1,3 +1,6 @@
+/* 
+A molecule that creates a card and displays a title, image and a caption (using the Caption atom)
+*/
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
@@ -16,6 +19,12 @@ const StyledWrapper = styled.div`
   margin: 10px;
   padding: 0 25px 25px;
   height: 410px;
+
+  &:hover {
+    transform: scale(1.02);
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+  }
 
   @media screen and (max-width: 768px) {
     height: 250px;
@@ -46,9 +55,11 @@ export const ItemCard = ({
   index,
   viewed,
 }) => {
+  // this variable will track if the item card has been viewed by the user
   let isViewed = false;
 
   if (viewed) {
+    // loop through the viewed prop (array) to see if this item's index is in the array
     viewed.map((viewedItem) => {
       if (viewedItem.index === index) return (isViewed = true);
       return false;

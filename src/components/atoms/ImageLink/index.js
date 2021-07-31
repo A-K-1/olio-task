@@ -1,3 +1,6 @@
+/* 
+A styled component which displays an image and opens a link in a new tab
+*/
 import React from "react";
 import PropTypes from "prop-types";
 

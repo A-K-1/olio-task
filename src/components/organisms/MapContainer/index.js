@@ -1,17 +1,15 @@
-import React, {
-  useState,
-  useRef,
-  useEffect,
-  useContext,
-  useReducer,
-} from "react";
+/* 
+An organism that displays a map using google-map-react
+The map uses the MapMarker molecule as well as clustering to group together markers
+Clicking a marker will display the Modal 
+*/
+import React, { useState, useRef, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
 import styled from "styled-components";
 import { Context } from "../../../contexts/Store";
 import MapMarker from "../../molecules/MapMarker";
 import { Modal } from "../../organisms";
-// import { reducer } from "../../../contexts/Reducer";
 
 const StyledMapWrapper = styled.div`
   height: 500px;
@@ -37,16 +35,17 @@ export const MapContainer = () => {
   const [bounds, setBounds] = useState(null);
   const [zoom, setZoom] = useState(5);
   const [markers, setMarkers] = useState([]);
-  // const [state, dispatch] = useReducer(reducer);
   const [state, dispatch] = useContext(Context);
   const [viewed, setViewed] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
 
+  // if there are items in the store, set these in the markers variable
   useEffect(() => {
     if (state.itemData) setMarkers(state.itemData);
   }, [state.itemData]);
 
+  // loop through the markers and set up the object for each marker (for clustering)
   const points = markers.map((item) => ({
     type: "Feature",
     properties: { cluster: false, data: item },
@@ -66,10 +65,12 @@ export const MapContainer = () => {
     options: { radius: 75, maxZoom: 20 },
   });
 
+  // handle the display of the modal. Clicking anywhere while the modal is open will close it
   const handleClickModal = () => {
     setShowModal(!showModal);
   };
 
+  // when an marker is clicked, add it to the array of viewed items and set the state
   const onMarkerClick = (itemId) => {
     const itemIndex = state.itemData.findIndex((index) => index.id === itemId);
 
@@ -80,9 +81,12 @@ export const MapContainer = () => {
         clicked: true,
       },
     ]);
+
+    // show the modal and set the correct item data to show in the modal
     setShowModal(true);
     setModalData(state.itemData[itemIndex]);
 
+    // set the global state
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
       payload: {
@@ -131,6 +135,7 @@ export const MapContainer = () => {
         }}
       >
         {clusters.map((cluster, index) => {
+          // loop through the clusters
           const [longitude, latitude] = cluster.geometry.coordinates;
           const {
             cluster: isCluster,
@@ -139,6 +144,7 @@ export const MapContainer = () => {
           } = cluster.properties;
 
           if (isCluster) {
+            // return the cluster, onclick, pan to and zoom into the cluster
             return (
               <Marker key={"item" + index} lat={latitude} lng={longitude}>
                 <StyledClusterWrapper
@@ -157,6 +163,7 @@ export const MapContainer = () => {
             );
           }
 
+          // if there is no cluster, display the individual marker instead
           return (
             <MapMarker
               key={"item" + index}

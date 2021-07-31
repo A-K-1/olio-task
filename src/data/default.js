@@ -1,3 +1,6 @@
+/*
+A data object storing data used throughout the app to prevent hardcoding and promote reusability of components
+*/
 import logo from "../images/logoWhite.png";
 import appStoreMobile from "../images/appleIconMobile.png";
 import playStoreMobile from "../images/playIconMobile.png";

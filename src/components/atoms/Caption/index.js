@@ -1,3 +1,6 @@
+/* 
+A styled caption component that uses a grey color
+*/
 import styled from "styled-components";
 
 export const Caption = styled.p`

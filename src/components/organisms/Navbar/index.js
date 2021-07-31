@@ -1,3 +1,6 @@
+/* 
+An Navigation bar organism that displays the logo as well as the AppLinkCluster molecule
+*/
 import React from "react";
 import styled from "styled-components";
 import { AppLinkCluster } from "../../molecules/AppLinkCluster";

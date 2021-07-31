@@ -1,9 +1,15 @@
+/* 
+A molecule that creates a custom Marker to be used on the MapContainer. 
+A custom icon is used which pulls from the data/default.js file
+*/
 import React from "react";
 import data from "../../../data/default";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
 
-const StyledWrapper = styled.div``;
+const StyledIcon = styled(Icon)`
+  color: ${(props) => props.theme.palette.secondary};
+`;
 
 const StyledMarkerTitle = styled.p`
   margin-top: 0 !important;
@@ -15,15 +21,10 @@ const StyledMarkerTitle = styled.p`
 
 const MapMarker = ({ itemId, title, handleClick }) => {
   return (
-    <StyledWrapper onClick={() => handleClick(itemId)}>
-      <Icon
-        icon={data.mapResources.markerIcon}
-        color="#bb4291"
-        width={30}
-        height={30}
-      />
+    <div onClick={() => handleClick(itemId)}>
+      <StyledIcon icon={data.mapResources.markerIcon} width={30} height={30} />
       <StyledMarkerTitle>{title}</StyledMarkerTitle>
-    </StyledWrapper>
+    </div>
   );
 };
 

@@ -16,6 +16,7 @@ const StyledItemListWrapper = styled.div`
 const App = () => {
   const [state, dispatch] = useContext(Context);
 
+  // fetch data from the url on page load only, add this to the store
   useEffect(() => {
     const url =
       "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json";
