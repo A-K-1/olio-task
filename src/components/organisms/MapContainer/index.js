@@ -1,9 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import GoogleMapReact from "google-map-react";
 import useSupercluster from "use-supercluster";
 import { Icon } from "@iconify/react";
 import data from "../../../data/default";
 import styled from "styled-components";
+import { AuthContext } from "../../../App";
+
+const StyledMapWrapper = styled.div`
+  height: 500px;
+  width: 100%;
+`;
 
 const StyledClusterWrapper = styled.div`
   color: #fff;
@@ -22,20 +28,13 @@ const Marker = ({ children }) => children;
 export const MapContainer = () => {
   const mapRef = useRef();
   const [bounds, setBounds] = useState(null);
-  const [zoom, setZoom] = useState(10);
+  const [zoom, setZoom] = useState(5);
   const [markers, setMarkers] = useState([]);
+  const { state: globalState } = useContext(AuthContext);
 
   useEffect(() => {
-    const url =
-      "https://s3-eu-west-1.amazonaws.com/olio-staging-images/developer/test-articles-v4.json";
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("setdata", data);
-        setMarkers(data);
-      });
-  }, []);
+    if (globalState.itemData) setMarkers(globalState.itemData);
+  }, [globalState.itemData]);
 
   const points = markers.map((item) => ({
     type: "Feature",
@@ -57,11 +56,11 @@ export const MapContainer = () => {
   });
 
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
+    <StyledMapWrapper>
       <GoogleMapReact
         bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
         defaultCenter={{ lat: 51.7645, lng: -3.79124 }}
-        defaultZoom={12}
+        defaultZoom={10}
         yesIWantToUseGoogleMapApiInternals
         onGoogleApiLoaded={({ map }) => {
           mapRef.current = map;
@@ -116,6 +115,6 @@ export const MapContainer = () => {
           );
         })}
       </GoogleMapReact>
-    </div>
+    </StyledMapWrapper>
   );
 };

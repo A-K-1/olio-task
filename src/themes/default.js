@@ -6,6 +6,7 @@ theme.palette = {
   secondary: "#bb4291",
   white: "#fff",
   black: "#000",
+  grey: "#727480",
 };
 
 theme.fonts = {
