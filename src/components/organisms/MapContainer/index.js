@@ -36,7 +36,6 @@ export const MapContainer = () => {
   const [zoom, setZoom] = useState(5);
   const [markers, setMarkers] = useState([]);
   const [state, dispatch] = useContext(Context);
-  const [viewed, setViewed] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
 
@@ -74,24 +73,16 @@ export const MapContainer = () => {
   const onMarkerClick = (itemId) => {
     const itemIndex = state.itemData.findIndex((index) => index.id === itemId);
 
-    setViewed([
-      ...viewed,
-      {
-        index: itemIndex,
-        clicked: true,
-      },
-    ]);
-
     // show the modal and set the correct item data to show in the modal
     setShowModal(true);
     setModalData(state.itemData[itemIndex]);
 
-    // set the global state
+    // set the global state, append the new clicked item to the list of items already in the store
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
       payload: {
         clickedItems: [
-          ...viewed,
+          ...state.clickedItems,
           {
             index: itemIndex,
             clicked: true,

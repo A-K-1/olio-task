@@ -30,7 +30,6 @@ const StyledListWrapper = styled.div`
 
 export const ItemList = () => {
   const [items, setItems] = useState([]);
-  const [viewed, setViewed] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [modalData, setModalData] = useState({});
   const [state, dispatch] = useContext(Context);
@@ -42,24 +41,16 @@ export const ItemList = () => {
 
   // when an item is clicked, add it to the array of viewed items and set the state
   const handleClickItem = (index) => {
-    setViewed([
-      ...viewed,
-      {
-        index: index,
-        clicked: true,
-      },
-    ]);
-
     // show the modal and set the correct item data to show in the modal
     setShowModal(true);
     setModalData(state.itemData[index]);
 
-    // set the global state
+    // set the global state, append the new clicked item to the list of items already in the store
     dispatch({
       type: "ADD_CLICKED_ITEM_LIST",
       payload: {
         clickedItems: [
-          ...viewed,
+          ...state.clickedItems,
           {
             index: index,
             clicked: true,
