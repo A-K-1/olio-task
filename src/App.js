@@ -13,6 +13,10 @@ const StyledItemListWrapper = styled.div`
   }
 `;
 
+const StyledFooterWrapper = styled.div`
+  margin-top: 40px;
+`;
+
 const App = () => {
   const [state, dispatch] = useContext(Context);
 
@@ -43,7 +47,9 @@ const App = () => {
       <StyledItemListWrapper>
         <ItemList />
       </StyledItemListWrapper>
-      <Footer />
+      <StyledFooterWrapper>
+        <Footer />
+      </StyledFooterWrapper>
     </div>
   );
 };
