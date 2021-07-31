@@ -30,7 +30,7 @@ Now that you have nodeJS installed, the next step is to download the application
 4. You must now use the terminal to navigate to the unzipped application folder. Please open a new terminal window and paste the following:
 
 ```bash
-cd Desktop/olio-task
+cd Desktop/olio-task-main
 ```
 
 5. You have now navigated into the project folder using your terminal!
