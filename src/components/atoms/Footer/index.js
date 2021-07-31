@@ -1,5 +1,5 @@
 /* 
-An Navigation bar organism that displays the logo as well as the AppLinkCluster molecule
+A Footer that displays text from the data file
 */
 import React from "react";
 import styled from "styled-components";
