@@ -27,7 +27,7 @@ const StyledWrapper = styled.div`
   }
 
   @media screen and (max-width: 768px) {
-    height: 250px;
+    height: max-content;
   }
 `;
 
@@ -45,6 +45,19 @@ const StyledItemName = styled.p`
   font-size: 1.25rem;
   line-height: normal;
   margin-top: 0;
+`;
+
+const StyledViewsWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+`;
+
+const StyledDescriptionWrapper = styled.div`
+  margin-bottom: 40px;
 `;
 
 export const ItemCard = ({
@@ -71,8 +84,12 @@ export const ItemCard = ({
     <StyledWrapper viewed={isViewed} onClick={() => handleClick(index)}>
       <StyledItemImage src={image} />
       <StyledItemName>{itemName}</StyledItemName>
-      <Caption>{description}</Caption>
-      <Caption>{`Number of views: ${numberViews}`}</Caption>
+      <StyledDescriptionWrapper>
+        <Caption>{description}</Caption>
+      </StyledDescriptionWrapper>
+      <StyledViewsWrapper>
+        <Caption>{`Number of views: ${numberViews}`}</Caption>
+      </StyledViewsWrapper>
     </StyledWrapper>
   );
 };
