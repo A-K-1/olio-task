@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
-import { ImageLink } from "../../atoms";
-import data from "../../../data/default";
+import PropTypes from "prop-types";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -13,6 +12,7 @@ const StyledItemImage = styled.img`
 `;
 
 export const ImageCluster = ({ images }) => {
+  console.log(images);
   return (
     <StyledWrapper>
       {images.map((image, index) => {
@@ -27,4 +27,12 @@ export const ImageCluster = ({ images }) => {
       })}
     </StyledWrapper>
   );
+};
+
+ImageCluster.propTypes = {
+  images: PropTypes.array,
+};
+
+ImageCluster.defaultProps = {
+  images: [],
 };

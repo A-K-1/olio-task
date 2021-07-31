@@ -67,4 +67,16 @@ export const Modal = ({
   );
 };
 
-Modal.propTypes = {};
+Modal.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  images: PropTypes.array,
+  distance: PropTypes.string,
+  town: PropTypes.string,
+  country: PropTypes.string,
+  collectionNotes: PropTypes.string,
+  expiry: PropTypes.string,
+  handleClick: PropTypes.func,
+};
+
+Modal.defaultProps = {};
