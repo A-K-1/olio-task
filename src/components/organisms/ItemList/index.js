@@ -5,7 +5,6 @@ import { AuthContext } from "../../../App";
 import { reducer } from "../../../contexts/reducer";
 import { Modal } from "../../organisms";
 import { Header } from "../../atoms";
-// import PropTypes from "prop-types";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -18,6 +17,7 @@ const StyledListWrapper = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   padding: 0 40px;
   grid-gap: 100px 0;
+  margin-top: 80px;
 
   @media screen and (max-width: 480px) {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -66,10 +66,22 @@ export const ItemList = () => {
     setShowModal(!showModal);
   };
 
-  console.log("globalState", state);
+  console.log("modalData", modalData);
   return (
     <StyledWrapper>
-      {showModal && <Modal data={modalData} handleClick={handleClickModal} />}
+      {showModal && (
+        <Modal
+          title={modalData.title}
+          description={modalData.description}
+          images={modalData.images}
+          distance={modalData.location.distance}
+          town={modalData.location.town}
+          country={modalData.location.country}
+          collectionNotes={modalData.collection_notes}
+          expiry={modalData.expiry}
+          handleClick={handleClickModal}
+        />
+      )}
       <Header>Items</Header>
       <StyledListWrapper>
         {items.map((item, index) => (
@@ -87,5 +99,3 @@ export const ItemList = () => {
     </StyledWrapper>
   );
 };
-
-// ItemList.propTypes = {};

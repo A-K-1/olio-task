@@ -1,18 +1,21 @@
 import React from "react";
 import styled from "styled-components";
-import { Header } from "../../atoms";
+import { Header, Caption } from "../../atoms";
+import { ImageCluster } from "../../molecules";
 import PropTypes from "prop-types";
 
 const StyledWrapper = styled.div`
+  display: flex;
   position: fixed;
+  justify-content: center;
   background-color: rgba(0, 0, 0, 0.85);
   width: 100vw;
   height: 100vh;
   top: 0;
   z-index: 1;
-  padding: 0 100px;
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 480px) {
+    padding: 0;
   }
 `;
 
@@ -25,20 +28,40 @@ const StyledModal = styled.div`
   width: 60vw;
   height: 80vh;
   top: 10vh;
-  left: 20vw;
   z-index: 1;
+  overflow: scroll;
 
-  opacity: 0 @media screen and (max-width: 360px) {
-
+  @media screen and (max-width: 480px) {
+    width: 80vw;
   }
 `;
 
-export const Modal = ({ data, handleClick }) => {
-  console.log(data);
+const StyledInformation = styled.div`
+  margin-top: 20px;
+`;
+
+export const Modal = ({
+  title,
+  description,
+  images,
+  distance,
+  town,
+  country,
+  collectionNotes,
+  expiry,
+  handleClick,
+}) => {
   return (
     <StyledWrapper onClick={handleClick}>
       <StyledModal>
-        <Header>{data.title}</Header>
+        <Header>{title}</Header>
+        <ImageCluster images={images} />
+        <StyledInformation>
+          <Caption>{`Description: ${description}`}</Caption>
+          <Caption>{`Address: ${town}, ${country}`}</Caption>
+          <Caption>{`Collection Notes: ${collectionNotes}`}</Caption>
+          <Caption>{`Expiry: ${expiry}`}</Caption>
+        </StyledInformation>
       </StyledModal>
     </StyledWrapper>
   );

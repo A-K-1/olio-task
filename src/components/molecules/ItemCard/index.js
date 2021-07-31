@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { Caption } from "../../atoms";
 
 const StyledWrapper = styled.div`
   opacity: ${(props) => (props.viewed ? "30%" : "100%")};
@@ -15,6 +16,10 @@ const StyledWrapper = styled.div`
   margin: 10px;
   padding: 0 25px 25px;
   height: 410px;
+
+  @media screen and (max-width: 768px) {
+    height: 250px;
+  }
 `;
 
 const StyledItemImage = styled.img`
@@ -31,25 +36,6 @@ const StyledItemName = styled.p`
   font-size: 1.25rem;
   line-height: normal;
   margin-top: 0;
-`;
-
-const StyledItemDescription = styled.p`
-  color: ${(props) => props.theme.palette.grey};
-  font-style: italic;
-  font-size: 1rem;
-  line-height: normal;
-  margin-top: 0;
-  margin-bottom: 40px;
-  height: 270px;
-  overflow: scroll;
-  white-space: pre-line;
-
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
-
-  :: -webkit-scrollbar {
-    width: 0;
-  }
 `;
 
 export const ItemCard = ({
@@ -74,7 +60,7 @@ export const ItemCard = ({
     <StyledWrapper viewed={isViewed} onClick={() => handleClick(index)}>
       <StyledItemImage src={image} />
       <StyledItemName>{itemName}</StyledItemName>
-      <StyledItemDescription>{description}</StyledItemDescription>
+      <Caption>{description}</Caption>
     </StyledWrapper>
   );
 };
