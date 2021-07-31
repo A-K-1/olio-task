@@ -1,6 +1,6 @@
 import React, { useEffect, useContext } from "react";
 import { Navbar, MapContainer, ItemList } from "./components/organisms";
-import { Footer } from "./components/atoms";
+import { Footer } from "./components/molecules";
 import data from "./data/default";
 import styled from "styled-components";
 import { Context } from "./contexts/Store";

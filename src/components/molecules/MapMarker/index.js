@@ -6,6 +6,7 @@ import React from "react";
 import data from "../../../data/default";
 import { Icon } from "@iconify/react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledIcon = styled(Icon)`
   color: ${(props) => props.theme.palette.secondary};
@@ -29,3 +30,11 @@ const MapMarker = ({ itemId, title, handleClick }) => {
 };
 
 export default MapMarker;
+
+MapMarker.propTypes = {
+  itemId: PropTypes.number.isRequired,
+  title: PropTypes.string,
+  handleClick: PropTypes.func,
+};
+
+MapMarker.defaultProps = {};

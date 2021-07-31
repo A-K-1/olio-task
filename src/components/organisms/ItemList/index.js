@@ -4,11 +4,10 @@ A modal will display when a card is clicked
 */
 import React, { useState, useEffect, useContext } from "react";
 import styled from "styled-components";
-import { ItemCard } from "../../molecules/index";
+import { ItemCard, Header } from "../../molecules/index";
 import { Context } from "../../../contexts/Store";
 // import { reducer } from "../../../contexts/Reducer";
 import { Modal } from "../../organisms";
-import { Header } from "../../atoms";
 
 const StyledWrapper = styled.div`
   display: flex;
