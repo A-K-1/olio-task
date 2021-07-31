@@ -4,7 +4,7 @@ This application will pull a list of articles from a live URL and display them o
 
 Clicking on a marker on the map or clicking on an item card will display a modal with more details on the item. Clicking on the modal or outside of the modal will close it.
 
-Once an item has been viewed in the modal, it is greyed out on the list to indicate it has been viewed.
+Once an item has been viewed in the modal, it is greyed out on the list to indicate it has been viewed. The view count will increase. If the card is clicked again, the count will not increase as the item has already been viewed
 
 The application is responsive and will display well on mobile as well as desktop. Item cards are reduced in size on the mobile view. You will also notice the navigation bar images will become icons in mobile view.
 
