@@ -2,7 +2,10 @@ import React from "react";
 import { ItemCard } from "./index";
 import { ThemeProvider } from "styled-components";
 import theme from "../../../themes/default";
-import ReactDOM from "react-dom";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const data = {
   id: 3899631,
@@ -119,8 +122,7 @@ const data = {
 };
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(
+  shallow(
     <ThemeProvider theme={theme}>
       <ItemCard
         itemName={data.title}
@@ -135,7 +137,6 @@ it("renders without crashing", () => {
           },
         ]}
       />
-    </ThemeProvider>,
-    div
+    </ThemeProvider>
   );
 });

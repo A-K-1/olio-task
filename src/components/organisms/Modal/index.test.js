@@ -2,7 +2,10 @@ import React from "react";
 import { Modal } from "./index";
 import { ThemeProvider } from "styled-components";
 import theme from "../../../themes/default";
-import ReactDOM from "react-dom";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const data = {
   id: 3899631,
@@ -119,11 +122,9 @@ const data = {
 };
 
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(
+  shallow(
     <ThemeProvider theme={theme}>
       <Modal data={data} />
-    </ThemeProvider>,
-    div
+    </ThemeProvider>
   );
 });
