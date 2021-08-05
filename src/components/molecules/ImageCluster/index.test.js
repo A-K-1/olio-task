@@ -1,8 +1,9 @@
 import React from "react";
 import { ImageCluster } from "./index";
-import { ThemeProvider } from "styled-components";
-import theme from "../../../themes/default";
-import ReactDOM from "react-dom";
+import Enzyme, { shallow } from "enzyme";
+import Adapter from "@wojtekmaj/enzyme-adapter-react-17";
+
+Enzyme.configure({ adapter: new Adapter() });
 
 const images = [
   {
@@ -21,11 +22,5 @@ const images = [
   },
 ];
 it("renders without crashing", () => {
-  const div = document.createElement("div");
-  ReactDOM.render(
-    <ThemeProvider theme={theme}>
-      <ImageCluster images={images} />
-    </ThemeProvider>,
-    div
-  );
+  shallow(<ImageCluster images={images} />);
 });
