@@ -50,6 +50,15 @@ npm start
 
 _Note: If you would like to clone the repository instead of downloading it as a ZIP, please follow the instructions [here](https://support.atlassian.com/bitbucket-cloud/docs/clone-a-git-repository/)_
 
+
+## Running Tests
+
+1. Following on from the above section (Installing the app dependencies and running the app locally), you can run the tests using the following command
+```bash
+npm test
+```
+
+
 ## Extra information
 
 Here is a list of some of the concepts/tools used in this application:
